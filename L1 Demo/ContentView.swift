@@ -10,61 +10,114 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
+        // War game
         ZStack {
-            Color(.systemMint)
+            Image("background-cloth")
+                .resizable()
                 .ignoresSafeArea()
             
-            VStack(alignment: .leading, spacing: 20.0) {
-                Image("niagarafalls")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(15)
+            VStack {
+                Spacer()
+                // Hero Image
+                Image("logo")
                 
+                // Player cards
+                Spacer()
                 HStack {
-                    Text("Niagara Falls")
-                        .font(.title)
-                        .fontWeight(.bold)
-                    
                     Spacer()
-                    
+                    Image("card2")
+                    Spacer()
+                    Image("card3")
+                    Spacer()
+                }
+                
+                // Deal button
+                Spacer()
+                Image("button")
+                
+                // Score
+                Spacer()
+                HStack {
+                    Spacer()
                     VStack {
-                        HStack {
-                            Image(systemName: "star.fill")
-                            Image(systemName: "star.fill")
-                            Image(systemName: "star.fill")
-                            Image(systemName: "star.fill")
-                            Image(systemName: "star.leadinghalf.filled")
-                        }
-                        
-                        Text("(Reviews 361)")
+                        Text("Player")
+                            .font(.headline)
+                            .padding(.bottom, 10.0)
+                        Text("0")
+                            .font(.largeTitle)
                     }
-                    .foregroundColor(.orange)
-                    .font(.caption)
-                }
-                
-                Text("Come visit the falls for an experience of a lifetime")
-                
-                HStack {
                     Spacer()
-                    Image(systemName: "fork.knife")
-                    Image(systemName: "binoculars.fill")
+                    VStack {
+                        Text("CPU")
+                            .font(.headline)
+                            .padding(.bottom, 10.0)
+                        Text("0")
+                            .font(.largeTitle)
+                    }
+                    Spacer()
                 }
-                .foregroundColor(.gray)
-                .font(.caption)
-                
-                
+                .foregroundColor(.white)
+                Spacer()
                 
             }
-            .padding()
-            .background(Rectangle()
-                .foregroundColor(.white)
-                .cornerRadius(15)
-                .shadow(radius: 15))
-            .padding()
         }
         
+        // Demo2
+//        ZStack {
+//            Color(.systemMint)
+//                .ignoresSafeArea()
+//            
+//            VStack(alignment: .leading, spacing: 20.0) {
+//                Image("niagarafalls")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    .cornerRadius(15)
+//                
+//                HStack {
+//                    Text("Niagara Falls")
+//                        .font(.title)
+//                        .fontWeight(.bold)
+//                    
+//                    Spacer()
+//                    
+//                    VStack {
+//                        HStack {
+//                            Image(systemName: "star.fill")
+//                            Image(systemName: "star.fill")
+//                            Image(systemName: "star.fill")
+//                            Image(systemName: "star.fill")
+//                            Image(systemName: "star.leadinghalf.filled")
+//                        }
+//                        
+//                        Text("(Reviews 361)")
+//                    }
+//                    .foregroundColor(.orange)
+//                    .font(.caption)
+//                }
+//                
+//                Text("Come visit the falls for an experience of a lifetime")
+//                
+//                HStack {
+//                    Spacer()
+//                    Image(systemName: "fork.knife")
+//                    Image(systemName: "binoculars.fill")
+//                }
+//                .foregroundColor(.gray)
+//                .font(.caption)
+//                
+//                
+//                
+//            }
+//            .padding()
+//            .background(Rectangle()
+//                .foregroundColor(.white)
+//                .cornerRadius(15)
+//                .shadow(radius: 15))
+//            .padding()
+//        }
         
         
+        // Demo 1
         //        ZStack {
         //            Color(.black).ignoresSafeArea()
         //
