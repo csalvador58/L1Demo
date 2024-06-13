@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var playerCard = "card7"
+    @State var cpuCard = "card13"
+    
+    @State var playerScore = 0
+    @State var cpuScore = 0
+    
     var body: some View {
         
         // War game
@@ -25,15 +31,19 @@ struct ContentView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    Image("card2")
+                    Image(playerCard)
                     Spacer()
-                    Image("card3")
+                    Image(cpuCard)
                     Spacer()
                 }
                 
                 // Deal button
                 Spacer()
-                Image("button")
+                Button(action: {
+                    deal()
+                }, label: {
+                    Image("button")
+                })
                 
                 // Score
                 Spacer()
@@ -43,7 +53,7 @@ struct ContentView: View {
                         Text("Player")
                             .font(.headline)
                             .padding(.bottom, 10.0)
-                        Text("0")
+                        Text(String(playerScore))
                             .font(.largeTitle)
                     }
                     Spacer()
@@ -51,7 +61,7 @@ struct ContentView: View {
                         Text("CPU")
                             .font(.headline)
                             .padding(.bottom, 10.0)
-                        Text("0")
+                        Text(String(cpuScore))
                             .font(.largeTitle)
                     }
                     Spacer()
@@ -62,81 +72,30 @@ struct ContentView: View {
             }
         }
         
-        // Demo2
-//        ZStack {
-//            Color(.systemMint)
-//                .ignoresSafeArea()
-//            
-//            VStack(alignment: .leading, spacing: 20.0) {
-//                Image("niagarafalls")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .cornerRadius(15)
-//                
-//                HStack {
-//                    Text("Niagara Falls")
-//                        .font(.title)
-//                        .fontWeight(.bold)
-//                    
-//                    Spacer()
-//                    
-//                    VStack {
-//                        HStack {
-//                            Image(systemName: "star.fill")
-//                            Image(systemName: "star.fill")
-//                            Image(systemName: "star.fill")
-//                            Image(systemName: "star.fill")
-//                            Image(systemName: "star.leadinghalf.filled")
-//                        }
-//                        
-//                        Text("(Reviews 361)")
-//                    }
-//                    .foregroundColor(.orange)
-//                    .font(.caption)
-//                }
-//                
-//                Text("Come visit the falls for an experience of a lifetime")
-//                
-//                HStack {
-//                    Spacer()
-//                    Image(systemName: "fork.knife")
-//                    Image(systemName: "binoculars.fill")
-//                }
-//                .foregroundColor(.gray)
-//                .font(.caption)
-//                
-//                
-//                
-//            }
-//            .padding()
-//            .background(Rectangle()
-//                .foregroundColor(.white)
-//                .cornerRadius(15)
-//                .shadow(radius: 15))
-//            .padding()
-//        }
-        
-        
-        // Demo 1
-        //        ZStack {
-        //            Color(.black).ignoresSafeArea()
-        //
-        //            VStack {
-        //                Image("niagarafalls")
-        //                    .resizable()
-        //                    .cornerRadius(15.0)
-        //                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fit/*@END_MENU_TOKEN@*/)
-        //                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-        //
-        //                Text("Niagara Falls")
-        //                    .font(.largeTitle)
-        //                    .fontWeight(.semibold)
-        //                    .foregroundColor(Color.white)
-        //            }
-        //        }
-        
         
     }
+    
+    func deal() {
+        // Randomize the players card
+        var playerCardValue = Int.random(in: 2...14)
+        playerCard = "card" + String(playerCardValue)
+        
+        // Randomize the cpus card
+        var cpuCardValue = Int.random(in: 2...14)
+        cpuCard = "card" + String(cpuCardValue)
+        
+        // Update the scores
+        print("playerCardValue: \(playerCardValue)")
+        print("cpuCardValue: \(cpuCardValue)")
+        
+        if (playerCardValue > cpuCardValue) {
+            playerScore += 1
+        } else if (playerCardValue < cpuCardValue) {
+            cpuScore += 1
+        }
+        
+    }
+    
 }
 
 #Preview {
